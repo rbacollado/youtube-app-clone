@@ -3,6 +3,8 @@ import ChannelRow from "../components/ChannelRow";
 import VideoRow from "../components/VideoRow";
 import TuneIcon from "@material-ui/icons/Tune";
 import "../styles.css";
+import { v4 as uuidv4 } from "uuid";
+import data from "../searchPage.js";
 
 function SearchPage() {
   return (
@@ -23,46 +25,18 @@ function SearchPage() {
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
       />
       <hr />
-
-      <VideoRow
-        views="1.4m"
-        subs="123k"
-        description="Hey Do you want FREE one Here?"
-        timestamp="a minute ago"
-        channel="Channel 1"
-        title="PUBG Gaming Live"
-        image="https://i.pinimg.com/originals/a2/10/dd/a210dd7a861f3dfabc7e988528237332.jpg"
-      />
-
-      <VideoRow
-        views="1.4m"
-        subs="123k"
-        description="Hey Do you want FREE one Here?"
-        timestamp="a minute ago"
-        channel="Channel 1"
-        title="PUBG Gaming Live"
-        image="https://i.pinimg.com/originals/a2/10/dd/a210dd7a861f3dfabc7e988528237332.jpg"
-      />
-
-      <VideoRow
-        views="1.4m"
-        subs="123k"
-        description="Hey Do you want FREE one Here?"
-        timestamp="a minute ago"
-        channel="Channel 1"
-        title="PUBG Gaming Live"
-        image="https://i.pinimg.com/originals/a2/10/dd/a210dd7a861f3dfabc7e988528237332.jpg"
-      />
-
-      <VideoRow
-        views="1.4m"
-        subs="123k"
-        description="Hey Do you want FREE one Here?"
-        timestamp="a minute ago"
-        channel="Channel 1"
-        title="PUBG Gaming Live"
-        image="https://i.pinimg.com/originals/a2/10/dd/a210dd7a861f3dfabc7e988528237332.jpg"
-      />
+      {data.map((sampleData) => (
+        <VideoRow
+          key={uuidv4()}
+          views={sampleData.views}
+          subs={sampleData.subs}
+          description={sampleData.description}
+          timestamp={sampleData.timestamp}
+          channel={sampleData.channel}
+          title={sampleData.title}
+          image={sampleData.image}
+        />
+      ))}
     </div>
   );
 }
